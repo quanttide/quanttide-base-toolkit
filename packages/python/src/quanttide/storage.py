@@ -33,6 +33,7 @@ _CATEGORY_MAP = {
 class LocalStorage:
     def __init__(self, app_name: str, vendor: str = "quanttide"):
         self._app_name = app_name
+        self._vendor = vendor
         self._dirs = PlatformDirs(app_name, vendor)
 
     def _get_dir(self, category: str) -> Path:
