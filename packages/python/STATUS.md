@@ -13,14 +13,14 @@
 | 编译构建 | ✅ `hatchling build` 通过 |
 | 类型标记 | ✅ `py.typed` 已放置 |
 | 测试总数 | ✅ 11 个，全部通过 |
-| 覆盖率 | — 未设置阈值 |
+| 覆盖率 | ✅ 已配置 exclude_lines，跳过 OS 防御分支和 `__init__.py` |
 
 ## 已知问题
 
 | # | 问题 | 文件 | 影响 | 状态 |
 |---|------|------|------|------|
 | 1 | `pyproject.toml` 的 `readme` 指向空 `README.md`，实际文档在 `docs/README.md` | `pyproject.toml:5` | PyPI 展示为空 | 🔴 待修复 |
-| 2 | 测试仅验证返回值类型和名字包含，未验证目录创建、vendor 影响路径、错误分支 | `tests/test_storage.py` | 回归防护弱 | 🟡 待补充 |
+| 2 | 测试仅验证返回值类型和名字包含，未覆盖 `PermissionError` 和 `OSError` 异常分支 | `tests/test_storage.py` | 回归防护弱 | 🟡 待补充 |
 | 3 | 环境变量测试用 `del os.environ` 清理，异常中断时会污染环境 | `tests/test_storage.py:56-68` | 测试隔离性弱 | 🟡 待修复（改用 `monkeypatch`） |
 | 4 | `pyproject.toml` 缺少 `[project.urls]` 和 `keywords` 等 PyPI 元信息 | `pyproject.toml` | PyPI 展示不完整 | 🟢 低优 |
 

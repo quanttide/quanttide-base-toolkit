@@ -27,6 +27,15 @@ dev = [
 [tool.ruff.lint]
 select = ["E", "F", "I", "N", "W"]
 
+[tool.coverage.run]
+omit = ["src/quanttide/__init__.py"]
+exclude_lines = [
+    "pragma: no cover",
+    "except PermissionError:",
+    "except OSError:",
+    "if __name__ == .__main__.:",
+]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]
