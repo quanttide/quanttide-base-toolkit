@@ -21,6 +21,8 @@ __pycache__/
 *.egg-info/
 dist/
 build/
+.coverage
+.coverage.*
 
 # Dart/Flutter (root level)
 .dart_tool/
