@@ -308,7 +308,7 @@ wheels = [
 ]
 
 [[package]]
-name = "quanttide-base"
+name = "quanttide"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [

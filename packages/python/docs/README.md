@@ -21,7 +21,7 @@
 ## 安装
 
 ```bash
-pip install quanttide-base
+pip install quanttide
 ```
 
 ## 开发
