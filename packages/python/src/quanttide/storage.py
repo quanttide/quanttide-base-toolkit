@@ -50,6 +50,7 @@ class LocalStorage:
         True
         >>> del os.environ["MY_APP_DATA_HOME"]
     """
+
     def __init__(self, app_name: str, vendor: str = "quanttide"):
         self._app_name = app_name
         self._vendor = vendor

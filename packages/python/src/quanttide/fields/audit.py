@@ -15,6 +15,7 @@ class CreatedAtField:
         >>> m.created_at
         datetime.datetime(2026, 5, 20, 0, 0)
     """
+
     @classmethod
     def __get_pydantic_core_schema__(
         cls, _source: type, _handler: GetCoreSchemaHandler
@@ -35,6 +36,7 @@ class UpdatedAtField:
         >>> m.updated_at
         datetime.datetime(2026, 5, 20, 0, 0)
     """
+
     @classmethod
     def __get_pydantic_core_schema__(
         cls, _source: type, _handler: GetCoreSchemaHandler

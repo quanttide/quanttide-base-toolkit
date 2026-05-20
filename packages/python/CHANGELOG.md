@@ -1,5 +1,18 @@
 # 变更记录
 
+## [0.1.1] - 2026-05-20
+
+### 新增
+
+- 标准字段模块 `fields/`：IdField, NameField, OrderField, LabelField, TitleField, DescriptionField, CreatedAtField, UpdatedAtField
+- 测试覆盖 29 个，100%
+
+### 基础设施
+
+- 补充 PyPI 元信息（urls、keywords、classifiers）
+- 修复 README 路径
+- 启用 doctest 和 coverage 配置
+
 ## [0.1.0] - 2026-05-20
 
 ### 初始版本

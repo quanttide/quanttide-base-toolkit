@@ -14,6 +14,7 @@ class IdField:
         >>> str(m.id) == "00000000-0000-0000-0000-000000000001"
         True
     """
+
     @classmethod
     def __get_pydantic_core_schema__(
         cls, _source: type, _handler: GetCoreSchemaHandler
@@ -33,6 +34,7 @@ class NameField:
         >>> m.name
         'my-project'
     """
+
     @classmethod
     def __get_pydantic_core_schema__(
         cls, _source: type, _handler: GetCoreSchemaHandler
@@ -52,6 +54,7 @@ class OrderField:
         >>> m.order
         1
     """
+
     @classmethod
     def __get_pydantic_core_schema__(
         cls, _source: type, _handler: GetCoreSchemaHandler
@@ -71,6 +74,7 @@ class LabelField:
         >>> m.label
         'Active'
     """
+
     @classmethod
     def __get_pydantic_core_schema__(
         cls, _source: type, _handler: GetCoreSchemaHandler

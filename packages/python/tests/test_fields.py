@@ -19,6 +19,7 @@ from quanttide import (
 def _make(field_type, value):
     class M(BaseModel):
         f: field_type
+
     return M(f=value).f
 
 

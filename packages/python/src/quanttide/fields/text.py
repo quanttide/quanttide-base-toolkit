@@ -14,6 +14,7 @@ class TitleField:
         >>> m.title
         'My Project'
     """
+
     @classmethod
     def __get_pydantic_core_schema__(
         cls, _source: type, _handler: GetCoreSchemaHandler
@@ -33,6 +34,7 @@ class DescriptionField:
         >>> m.desc
         'some long text'
     """
+
     @classmethod
     def __get_pydantic_core_schema__(
         cls, _source: type, _handler: GetCoreSchemaHandler
