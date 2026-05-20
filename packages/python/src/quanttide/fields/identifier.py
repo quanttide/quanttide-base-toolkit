@@ -41,7 +41,17 @@ class NameField:
 
 
 class OrderField:
-    """排序序号，正整数"""
+    """排序序号，正整数。
+
+    用法:
+        >>> from pydantic import BaseModel
+        >>> from quanttide import OrderField
+        >>> class M(BaseModel):
+        ...     order: OrderField
+        >>> m = M(order=1)
+        >>> m.order
+        1
+    """
     @classmethod
     def __get_pydantic_core_schema__(
         cls, _source: type, _handler: GetCoreSchemaHandler
@@ -50,7 +60,17 @@ class OrderField:
 
 
 class LabelField:
-    """显示标签（≤50）"""
+    """显示标签（≤50）。
+
+    用法:
+        >>> from pydantic import BaseModel
+        >>> from quanttide import LabelField
+        >>> class M(BaseModel):
+        ...     label: LabelField
+        >>> m = M(label="Active")
+        >>> m.label
+        'Active'
+    """
     @classmethod
     def __get_pydantic_core_schema__(
         cls, _source: type, _handler: GetCoreSchemaHandler
