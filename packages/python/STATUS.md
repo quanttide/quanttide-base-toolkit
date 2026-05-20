@@ -2,7 +2,8 @@
 
 ## 当前范围
 
-仅包含 `storage` 模块（`LocalStorage` 类），`models` 等模块待开发。
+- `storage` 模块（`LocalStorage` 类）— ✅ 已完成
+- `models` 模块（标准字段 Pydantic 类型）— 下一版本 v0.1.1
 
 ## 验收结果
 
