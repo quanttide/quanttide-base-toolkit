@@ -1,39 +1,37 @@
 # 标准字段规范
 
-> 跨语言不变的字段定义。
+> 跨语言不变的字段定义。未完全确定的字段标记为 **TBD**。
 
 ## 标识
 
 | 字段 | 值 | 唯一性 | 用途 |
 |------|----|--------|------|
 | `id` | UUID | 全局 | 唯一主键 |
-| `order` | 整数 | 模型内 | 排序序号，自增 |
+| `order` | 正整数 | 模型内 | 排序序号 |
 | `name` | 短字符串（≤100） | 模型内 | 唯一标识名，slug 风格 |
-| `label` | 短字符串（≤50） | 不要求 | 枚举值的人眼可读展示。与 `title` 的区别：`title` 标识记录内容，`label` 标识枚举值展示。与 `name` 的区别：`name` 是唯一机器标识，`label` 是可读别名 |
+| `label` | 短字符串（≤50） | 不要求 | 显示标签 |
 
 ## 文本
 
 | 字段 | 值 | 用途 |
 |------|----|------|
 | `title` | 字符串（≤255） | 完整标题 |
-| `description` | 长文本 | 描述 |
-| `content` | 多模态 | 富文本正文 |
+| `description` | 字符串 | 描述 |
+| `content` | **TBD** | 富文本正文 |
 
 ## 分类
 
 | 字段 | 值 | 用途 |
 |------|----|------|
-| `type` | 枚举 | 系统分类 |
-| `category` | 枚举/引用 | 类别，与 type/tag 并列 |
-| `tag` | 枚举集合 | 标签，与 type/category 并列 |
-
-`type`、`category`、`tag` 三者并列，描述不同维度的分类。
+| `type` | **TBD** | 系统分类 |
+| `category` | **TBD** | 类别 |
+| `tag` | **TBD** | 标签 |
 
 ## 状态
 
 | 字段 | 值 | 用途 |
 |------|----|------|
-| `status` | 枚举 | 生命周期状态 |
+| `status` | **TBD** | 生命周期状态 |
 
 ## 审计
 
@@ -41,12 +39,21 @@
 |------|----|------|
 | `created_at` | 时间点 | 创建时间，不可变 |
 | `updated_at` | 时间点 | 最后更新时间 |
-| `created_by` | 用户引用 | 创建者 |
-| `updated_by` | 用户引用 | 最后更新者 |
+| `created_by` | **TBD** | 创建者 |
+| `updated_by` | **TBD** | 最后更新者 |
 
-## 版本
+## 已确认字段（v0.1.1）
 
-| 版本 | 变更 |
-|------|------|
-| v0.1（django） | `id` `order` `name` `verboseName` `title` `description` `readme` `type` `status` `stage` + 审计 |
-| v0.2 | `order` 替代 `number`；`label` 替代 `verboseName`（限定范围）；`content` 替代 `readme`；删除 `stage`；新增 `category`、`tag` |
+```python
+# 可用字段类
+IdField           # UUID
+NameField         # str, ≤100, slug
+OrderField        # int, 正整数
+LabelField        # str, ≤50
+TitleField        # str, ≤255
+DescriptionField  # str
+CreatedAtField    # datetime
+UpdatedAtField    # datetime
+```
+
+其余字段待后续版本确认。

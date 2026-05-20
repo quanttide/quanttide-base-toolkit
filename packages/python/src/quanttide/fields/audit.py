@@ -18,21 +18,3 @@ class UpdatedAtField:
         cls, _source: type, _handler: GetCoreSchemaHandler
     ) -> CoreSchema:
         return core_schema.datetime_schema()
-
-
-class CreatedByField:
-    """创建者"""
-    @classmethod
-    def __get_pydantic_core_schema__(
-        cls, _source: type, _handler: GetCoreSchemaHandler
-    ) -> CoreSchema:
-        return core_schema.str_schema()
-
-
-class UpdatedByField:
-    """最后更新者"""
-    @classmethod
-    def __get_pydantic_core_schema__(
-        cls, _source: type, _handler: GetCoreSchemaHandler
-    ) -> CoreSchema:
-        return core_schema.str_schema()

@@ -36,11 +36,9 @@ src/quanttide/
   storage.py        # LocalStorage 实现
   fields/
     __init__.py     # 导出全部字段
-    identifier.py   # IdField, OrderField, NameField, LabelField
-    text.py         # TitleField, DescriptionField, ContentField
-    classification.py  # TypeField, CategoryField, TagField
-    status.py       # StatusField
-    audit.py        # CreatedAtField, UpdatedAtField, CreatedByField, UpdatedByField
+    identifier.py   # IdField, NameField, OrderField, LabelField
+    text.py         # TitleField, DescriptionField
+    audit.py        # CreatedAtField, UpdatedAtField
   py.typed          # PEP 561 类型标记
 tests/
   __init__.py
