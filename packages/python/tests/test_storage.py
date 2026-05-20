@@ -1,7 +1,12 @@
 import os
+import warnings
 from pathlib import Path
+from unittest.mock import PropertyMock, patch
+
+import pytest
 
 from quanttide import LocalStorage
+from quanttide.storage import _make_dir
 
 
 class TestLocalStorage:
@@ -65,3 +70,29 @@ class TestLocalStorage:
     def test_path_contains_app_name(self):
         store = LocalStorage("test-app")
         assert "test-app" in str(store.data_dir)
+
+    def test_make_dir_permission_error_ignored(self):
+        with patch("pathlib.Path.chmod", side_effect=PermissionError):
+            path = _make_dir("/tmp/quanttide-test-perm")
+            assert path.exists()
+
+    def test_runtime_dir_fallback_on_oserror(self):
+        store = LocalStorage("my-app")
+        cache_dir = store.cache_dir
+        with patch.object(
+            type(store._dirs), "user_runtime_dir", new_callable=PropertyMock, side_effect=OSError
+        ):
+            with pytest.warns(UserWarning, match="RUNTIME_DIR not available"):
+                path = store.runtime_dir
+        assert path == cache_dir / "run"
+
+    def test_cache_dir_not_affected_by_runtime_fallback(self):
+        """Verify that runtime fallback doesn't corrupt other dirs."""
+        store = LocalStorage("my-app")
+        cache_before = store.cache_dir
+        with patch.object(
+            type(store._dirs), "user_runtime_dir", new_callable=PropertyMock, side_effect=OSError
+        ):
+            with pytest.warns(UserWarning):
+                store.runtime_dir
+        assert store.cache_dir == cache_before
