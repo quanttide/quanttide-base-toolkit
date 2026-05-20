@@ -1,0 +1,22 @@
+name: ci-django
+on:
+  push:
+    branches: [main]
+    paths: ['packages/django/**']
+  pull_request:
+    paths: ['packages/django/**']
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/django
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: install dependencies
+        run: python -m pip install -e .[dev,test]
+      - name: run tests
+        run: python runtests.py

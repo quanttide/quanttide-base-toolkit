@@ -1,0 +1,21 @@
+name: ci-flutter
+on:
+  push:
+    branches: [main]
+    paths: ['packages/flutter/**']
+  pull_request:
+    paths: ['packages/flutter/**']
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/flutter
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+      - run: dart pub get
+      - run: dart analyze lib/ test/
+      - run: dart test
