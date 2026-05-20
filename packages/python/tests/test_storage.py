@@ -1,4 +1,3 @@
-import os
 import warnings
 from pathlib import Path
 from unittest.mock import PropertyMock, patch
@@ -51,17 +50,15 @@ class TestLocalStorage:
         assert isinstance(path, Path)
         assert "my-app" in str(path)
 
-    def test_env_override(self):
-        os.environ["MY_APP_DATA_HOME"] = "/tmp/custom-data"
+    def test_env_override(self, monkeypatch):
+        monkeypatch.setenv("MY_APP_DATA_HOME", "/tmp/custom-data")
         store = LocalStorage("my-app")
         assert store.data_dir == Path("/tmp/custom-data")
-        del os.environ["MY_APP_DATA_HOME"]
 
-    def test_env_override_config(self):
-        os.environ["MY_APP_CONFIG_HOME"] = "/tmp/custom-config"
+    def test_env_override_config(self, monkeypatch):
+        monkeypatch.setenv("MY_APP_CONFIG_HOME", "/tmp/custom-config")
         store = LocalStorage("my-app")
         assert store.config_dir == Path("/tmp/custom-config")
-        del os.environ["MY_APP_CONFIG_HOME"]
 
     def test_custom_vendor(self):
         store = LocalStorage("my-app", vendor="custom")
