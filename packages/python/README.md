@@ -69,6 +69,7 @@ uv run ruff check src/ tests/
 
 ## 相关文档
 
-- [标准字段规范](/docs/spec/standard_fields.md)
+- [标准字段](/docs/spec/standard_fields.md) — 跨语言规范
+- [存储使用手册](docs/storage.md) — LocalStorage 用法
+- [字段使用手册](docs/fields.md) — 标准字段用法
 - [存储规范](/docs/spec/local_storage.md)
-- [开发指引](docs/README.md)

@@ -41,10 +41,14 @@ src/quanttide/
     audit.py        # CreatedAtField, UpdatedAtField
   py.typed          # PEP 561 类型标记
 tests/
-  __init__.py
   test_storage.py   # 14 个测试
+  test_fields.py    # 15 个测试
+docs/
+  storage.md        # 本地存储使用手册
+  fields.md         # 标准字段使用手册
 pyproject.toml      # 项目配置
 README.md           # 使用文档
 STATUS.md           # 本文件
 TODO.md             # 待办事项
+CHANGELOG.md        # 变更记录
 ```
