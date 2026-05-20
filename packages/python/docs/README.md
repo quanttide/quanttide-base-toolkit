@@ -40,10 +40,11 @@ uv run pytest --cov=src/
 ## 快速开始
 
 ```python
-from quanttide.storage import get_data_dir, get_config_dir
+from quanttide import LocalStorage
 
-data_dir = get_data_dir("my-app")
-config_dir = get_config_dir("my-app")
+store = LocalStorage("my-app")
+data_dir = store.data_dir
+config_dir = store.config_dir
 
 # 数据目录
 # Linux:   ~/.local/share/quanttide/my-app/
@@ -53,14 +54,14 @@ config_dir = get_config_dir("my-app")
 
 ## API 参考
 
-| 函数 | 说明 |
+| 属性 | 说明 |
 |------|------|
-| `get_config_dir(app_name)` | 应用配置目录 |
-| `get_data_dir(app_name)` | 应用数据目录 |
-| `get_cache_dir(app_name)` | 应用缓存目录 |
-| `get_log_dir(app_name)` | 应用日志目录 |
-| `get_state_dir(app_name)` | 应用状态目录 |
-| `get_runtime_dir(app_name)` | 应用运行时目录 |
+| `store.config_dir` | 应用配置目录 |
+| `store.data_dir` | 应用数据目录 |
+| `store.cache_dir` | 应用缓存目录 |
+| `store.log_dir` | 应用日志目录 |
+| `store.state_dir` | 应用状态目录 |
+| `store.runtime_dir` | 应用运行时目录 |
 
 ## 环境变量
 

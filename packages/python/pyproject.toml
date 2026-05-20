@@ -9,6 +9,7 @@ authors = [
     { name = "QuantTide Inc.", email = "opensource@quanttide.com" },
 ]
 dependencies = [
+    "platformdirs>=4.9.6",
     "pydantic>=2.13.4",
 ]
 
