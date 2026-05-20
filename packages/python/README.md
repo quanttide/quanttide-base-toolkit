@@ -86,7 +86,7 @@ uv sync --dev
 # lint
 uv run ruff check src/ tests/
 
-# test
+# test (includes doctests)
 uv run pytest --cov=src/
 ```
 

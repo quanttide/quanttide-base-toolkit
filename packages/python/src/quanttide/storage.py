@@ -31,6 +31,25 @@ _CATEGORY_MAP = {
 
 
 class LocalStorage:
+    """跨平台应用本地目录管理。
+
+    提供配置、数据、缓存、日志、状态、运行时六个标准目录，
+    遵循各平台规范（XDG、macOS、Windows）。
+
+    用法:
+        >>> from quanttide import LocalStorage
+        >>> store = LocalStorage("my-app")
+        >>> isinstance(store.data_dir, Path)
+        True
+
+    环境变量覆写（优先级高于默认路径）:
+        >>> import os
+        >>> os.environ["MY_APP_DATA_HOME"] = "/tmp"
+        >>> store = LocalStorage("my-app")
+        >>> str(store.data_dir) == "/tmp"
+        True
+        >>> del os.environ["MY_APP_DATA_HOME"]
+    """
     def __init__(self, app_name: str, vendor: str = "quanttide"):
         self._app_name = app_name
         self._vendor = vendor

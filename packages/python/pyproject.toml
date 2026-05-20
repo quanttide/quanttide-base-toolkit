@@ -55,3 +55,4 @@ exclude_lines = [
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]
+addopts = "--doctest-modules"

@@ -3,7 +3,17 @@ from pydantic_core import CoreSchema, core_schema
 
 
 class IdField:
-    """全局唯一主键"""
+    """全局唯一主键。
+
+    用法:
+        >>> from pydantic import BaseModel
+        >>> from quanttide import IdField
+        >>> class M(BaseModel):
+        ...     id: IdField
+        >>> m = M(id="00000000-0000-0000-0000-000000000001")
+        >>> str(m.id) == "00000000-0000-0000-0000-000000000001"
+        True
+    """
     @classmethod
     def __get_pydantic_core_schema__(
         cls, _source: type, _handler: GetCoreSchemaHandler
@@ -12,7 +22,17 @@ class IdField:
 
 
 class NameField:
-    """唯一标识名（≤100），slug 风格"""
+    """唯一标识名（≤100），slug 风格。
+
+    用法:
+        >>> from pydantic import BaseModel
+        >>> from quanttide import NameField
+        >>> class M(BaseModel):
+        ...     name: NameField
+        >>> m = M(name="my-project")
+        >>> m.name
+        'my-project'
+    """
     @classmethod
     def __get_pydantic_core_schema__(
         cls, _source: type, _handler: GetCoreSchemaHandler
