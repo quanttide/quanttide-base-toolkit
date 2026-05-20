@@ -1,9 +1,5 @@
 # TODO
 
-## 🔴 高优先级
-
-- [ ] 修复 `pyproject.toml` readme 路径：改为 `docs/README.md`（当前指向空 `README.md`，PyPI 展示为空）
-
 ## 🟡 中优先级
 
 - [ ] 补充测试覆盖 `PermissionError` 和 `OSError` 异常分支
