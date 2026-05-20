@@ -40,7 +40,7 @@ uv run pytest --cov=src/
 ## 快速开始
 
 ```python
-from quanttide_base.storage import get_data_dir, get_config_dir
+from quanttide.storage import get_data_dir, get_config_dir
 
 data_dir = get_data_dir("my-app")
 config_dir = get_config_dir("my-app")
