@@ -7,8 +7,4 @@
 
 ## 🟢 低优先级
 
-- [ ] 补充 `[project.urls]`、`keywords` 等 PyPI 元信息
-
-## 待规划
-
-- [ ] `models` 模块开发
+- [x] 补充 `[project.urls]`、`keywords` 等 PyPI 元信息

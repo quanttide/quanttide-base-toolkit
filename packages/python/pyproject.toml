@@ -2,16 +2,30 @@
 name = "quanttide"
 version = "0.1.0"
 description = "量潮基础工具箱（Python SDK）"
-readme = "docs/README.md"
+readme = "README.md"
 requires-python = ">=3.11"
 license = "Apache-2.0"
 authors = [
     { name = "QuantTide Inc.", email = "opensource@quanttide.com" },
 ]
+keywords = ["quanttide", "local-storage", "cross-platform", "xdg"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
+]
 dependencies = [
     "platformdirs>=4.9.6",
     "pydantic>=2.13.4",
 ]
+
+[project.urls]
+Homepage = "https://github.com/quanttide/quanttide-base-toolkit"
+Source = "https://github.com/quanttide/quanttide-base-toolkit"
+Tracker = "https://github.com/quanttide/quanttide-base-toolkit/issues"
 
 [build-system]
 requires = ["hatchling"]
