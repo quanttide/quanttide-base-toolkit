@@ -1,8 +1,8 @@
 # TODO
 
-## 下一版本 (v0.1.1)
+## v0.1.1
 
-- [ ] **标准字段模型**：移植 django-quanttide 的 14 个标准字段（IDField、NameField、TitleField、DescriptionField、TypeField、StatusField 等）为 Pydantic 类型
+- [x] 标准字段模型：移植为 Pydantic 类型，5 类 15 个字段
 
 ## 已完成
 

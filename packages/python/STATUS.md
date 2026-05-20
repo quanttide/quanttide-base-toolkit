@@ -3,7 +3,7 @@
 ## 当前范围
 
 - `storage` 模块（`LocalStorage` 类）— ✅ 已完成
-- `models` 模块（标准字段 Pydantic 类型）— 下一版本 v0.1.1
+- `fields` 模块（标准字段 Pydantic 类型）— ✅ v0.1.1 已完成
 
 ## 验收结果
 
@@ -29,8 +29,15 @@
 
 ```
 src/quanttide/
-  __init__.py       # 导出 LocalStorage
+  __init__.py       # 导出 LocalStorage + 字段
   storage.py        # LocalStorage 实现
+  fields/
+    __init__.py     # 导出全部字段
+    identifier.py   # IdField, OrderField, NameField, LabelField
+    text.py         # TitleField, DescriptionField, ContentField
+    classification.py  # TypeField, CategoryField, TagField
+    status.py       # StatusField
+    audit.py        # CreatedAtField, UpdatedAtField, CreatedByField, UpdatedByField
   py.typed          # PEP 561 类型标记
 tests/
   __init__.py
