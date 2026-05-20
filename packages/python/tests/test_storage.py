@@ -1,4 +1,3 @@
-import warnings
 from pathlib import Path
 from unittest.mock import PropertyMock, patch
 
@@ -77,7 +76,10 @@ class TestLocalStorage:
         store = LocalStorage("my-app")
         cache_dir = store.cache_dir
         with patch.object(
-            type(store._dirs), "user_runtime_dir", new_callable=PropertyMock, side_effect=OSError
+            type(store._dirs),
+            "user_runtime_dir",
+            new_callable=PropertyMock,
+            side_effect=OSError,
         ):
             with pytest.warns(UserWarning, match="RUNTIME_DIR not available"):
                 path = store.runtime_dir
@@ -88,7 +90,10 @@ class TestLocalStorage:
         store = LocalStorage("my-app")
         cache_before = store.cache_dir
         with patch.object(
-            type(store._dirs), "user_runtime_dir", new_callable=PropertyMock, side_effect=OSError
+            type(store._dirs),
+            "user_runtime_dir",
+            new_callable=PropertyMock,
+            side_effect=OSError,
         ):
             with pytest.warns(UserWarning):
                 store.runtime_dir

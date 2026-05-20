@@ -43,6 +43,8 @@ select = ["E", "F", "I", "N", "W"]
 
 [tool.coverage.run]
 omit = ["src/quanttide/__init__.py"]
+
+[tool.coverage.report]
 exclude_lines = [
     "pragma: no cover",
     "except PermissionError:",
