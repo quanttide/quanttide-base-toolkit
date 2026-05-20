@@ -31,6 +31,8 @@ config_dir = store.config_dir
 
 ## API 参考
 
+### 本地存储
+
 | 属性 | 说明 |
 |------|------|
 | `store.config_dir` | 应用配置目录 |
@@ -39,6 +41,31 @@ config_dir = store.config_dir
 | `store.log_dir` | 应用日志目录 |
 | `store.state_dir` | 应用状态目录 |
 | `store.runtime_dir` | 应用运行时目录 |
+
+### 标准字段
+
+```python
+from quanttide import IdField, NameField, TitleField
+from pydantic import BaseModel
+
+class Project(BaseModel):
+    id: IdField
+    name: NameField
+    title: TitleField | None = None
+```
+
+| 字段类 | 值类型 | 说明 |
+|--------|--------|------|
+| `IdField` | UUID | 全局唯一主键 |
+| `NameField` | str（≤100） | 唯一标识名，slug 风格 |
+| `OrderField` | int（≥1） | 排序序号 |
+| `LabelField` | str（≤50） | 显示标签 |
+| `TitleField` | str（≤255） | 完整标题 |
+| `DescriptionField` | str | 描述 |
+| `CreatedAtField` | datetime | 创建时间 |
+| `UpdatedAtField` | datetime | 最后更新时间 |
+
+字段规范见 [标准字段规范](/docs/spec/standard_fields.md)。
 
 ## 环境变量
 
