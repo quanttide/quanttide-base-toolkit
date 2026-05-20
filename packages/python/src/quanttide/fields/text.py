@@ -18,12 +18,3 @@ class DescriptionField:
         cls, _source: type, _handler: GetCoreSchemaHandler
     ) -> CoreSchema:
         return core_schema.str_schema()
-
-
-class ContentField:
-    """富文本正文（多模态）"""
-    @classmethod
-    def __get_pydantic_core_schema__(
-        cls, _source: type, _handler: GetCoreSchemaHandler
-    ) -> CoreSchema:
-        return core_schema.str_schema()
