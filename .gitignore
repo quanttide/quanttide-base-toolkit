@@ -1,0 +1,28 @@
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+
+# Python (root level)
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.egg-info/
+dist/
+build/
+
+# Dart/Flutter (root level)
+.dart_tool/
+.packages
+build/
+doc/api/
